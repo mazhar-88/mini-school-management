@@ -40,7 +40,7 @@ function TeacherModal({ showModal, handleCloseModal, handleSaveModal, teacherObj
                 const url = `/teacher?id=${teacherObj.teacher_id}`;
                 result = await axiosInstance.put(url, obj);
             } else {
-                const url = `http://localhost:8000/teacher`;
+                const url = `/teacher`;
                 result = await axiosInstance.post(url, obj);
             }
             // if (result.status == 201) {

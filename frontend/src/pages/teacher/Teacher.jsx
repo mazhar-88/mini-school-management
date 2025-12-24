@@ -8,7 +8,6 @@ import {
 } from "react-bootstrap";
 import TeacherTable from "./teacher-table/TeacherTable";
 import TeacherModal from "./teacher-modal/TeacherModal";
-import axios from "axios";
 import axiosInstance from "../../shared/utils/axiosInstance";
 
 function Teacher() {
@@ -48,11 +47,9 @@ function Teacher() {
     const handleEditStudent = (isModalOpen, teacher) => {
         setShowModal(isModalOpen);
         setTeacherObj(teacher)
-        console.log(teacher);
     };
 
     const handleDelete = async (teacher) => {
-        console.log(teacher);
         try {
             const url = `/teacher?id=${teacher.teacher_id}`;
             const result = await axiosInstance.delete(url);

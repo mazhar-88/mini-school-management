@@ -43,7 +43,6 @@ function routeMapping(req, res, urlObject) {
     if (pathname === "/student" && req.method === "PUT") return authenticateMiddleware(req, res, () => StudentController.updatestudent(req, res, urlObject));
     if (pathname === "/student" && req.method === "DELETE") return authenticateMiddleware(req, res, () => StudentController.deletestudent(req, res, urlObject));
 
-
     res.writeHead(404, { "content-type": "application/json" });
     res.end(JSON.stringify({ status: "404", message: "Route Not Found" }));
 }

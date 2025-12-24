@@ -10,6 +10,7 @@ import {
 import axiosInstance from "../../../shared/utils/axiosInstance";
 
 function SectionModal({ showModal, handleCloseModal, handleSaveModal, sectionObj, classes, isEditMode }) {
+    const API =  import.meta.env.VITE_API_BASE_URL;
     const [formData, setFormData] = useState({
         sectionname: "",
         classId: ""
@@ -35,11 +36,10 @@ function SectionModal({ showModal, handleCloseModal, handleSaveModal, sectionObj
                 const url = `/section?id=${sectionObj.section_id}`;
                 result = await axiosInstance.put(url, obj);
             } else {
-                const url = `http://localhost:8000/section`;
+                const url = `${API}/section`;
                 result = await axiosInstance.post(url, obj);
             }
 
-            console.log("result", result);
             loadUpdatedData = true;
             setFormData({
                 sectionname: "",

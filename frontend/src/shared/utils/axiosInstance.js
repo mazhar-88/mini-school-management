@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
-// Request interceptor
 axiosInstance.interceptors.request.use(
     (config) => {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -17,7 +16,6 @@ axiosInstance.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
-// Response interceptor
 axiosInstance.interceptors.response.use(
     (response) => response,
     (error) => {

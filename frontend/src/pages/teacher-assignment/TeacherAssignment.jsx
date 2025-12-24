@@ -47,12 +47,10 @@ function TeacherAssignment() {
 
     const handleEditStudent = (isModalOpen, teacher) => {
         setShowModal(isModalOpen);
-        console.log("12", teacher);
         setTeacherObj(teacher)
     };
 
     const handleDelete = async (teacher) => {
-        console.log(teacher);
         try {
             const url = `/assignment?id=${teacher.assignment_id}`;
             const result = await axiosInstance.delete(url);

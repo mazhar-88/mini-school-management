@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 function SignUp() {
     const navigate = useNavigate();
-
+    const API = import.meta.env.VITE_API_BASE_URL;
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -46,7 +46,7 @@ function SignUp() {
 
         try {
             setLoading(true);
-            const url = "http://localhost:8000/signup";
+            const url = `${API}/signup`;
             const result = await axios.post(url, formData);
 
             if (result.status === 201) {

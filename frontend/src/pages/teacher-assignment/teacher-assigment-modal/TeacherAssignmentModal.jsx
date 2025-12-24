@@ -28,9 +28,7 @@ function TeacherAssignmentModal({ showModal, handleCloseModal, handleSaveModal, 
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         if (name == "classId") {
-            console.log("val", value)
             setGetClassId(value);
-            //selectedsection
         }
     };
 
@@ -46,7 +44,6 @@ function TeacherAssignmentModal({ showModal, handleCloseModal, handleSaveModal, 
 
         } try {
             const obj = { ...formData }
-            console.log("updateobj", obj)
             let result;
             if (isEditMode) {
                 const url = `/assignment?id=${teacherObj.assignment_id}`;
@@ -91,7 +88,6 @@ function TeacherAssignmentModal({ showModal, handleCloseModal, handleSaveModal, 
             console.log(error);
         }
     };
-    const loadSection = async () => { };
 
     useEffect(() => {
         loadTeacher();

@@ -1,10 +1,11 @@
+require('dotenv').config();
 const http = require("http");
 const { URL } = require("url");
 const fs = require("fs");
 const path = require("path");
 const routeMapping = require("./routes/routes.js");
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 const server = http.createServer((req, res) => {
 

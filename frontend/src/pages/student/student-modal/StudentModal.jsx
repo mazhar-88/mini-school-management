@@ -13,6 +13,7 @@ import {
 import axiosInstance from "../../../shared/utils/axiosInstance";
 
 function StudentModal({ showModal, handleCloseModal, handleSaveModal, studentObj, isEditMode }) {
+    const API =  import.meta.env.VITE_API_BASE_URL;
     const [previewImage, setPreviewImage] = useState("");
     const [getClassId, setGetClassId] = useState("");
     const [classes, setClasses] = useState([]);
@@ -43,33 +44,16 @@ function StudentModal({ showModal, handleCloseModal, handleSaveModal, studentObj
         }
     };
 
-    // const classes = [
-    //     { id: 1, name: "10th" },
-    //     { id: 2, name: "9th" },
-    // ];
-
-    const sections = [
-        { id: 1, classId: 1, name: "A" },
-        { id: 2, classId: 1, name: "B" },
-        { id: 3, classId: 2, name: "A" },
-    ];
-    const filteredSections = sections.filter(
-        (sec) => sec.classId === Number(formData.classId)
-    );
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         if (name == "classId") {
-            console.log("val", value)
             setGetClassId(value);
-            //selectedsection
         }
     };
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
-        console.log("Selected file:", file);
         setFormData(prev => ({
             ...prev,
             image: file
@@ -103,10 +87,6 @@ function StudentModal({ showModal, handleCloseModal, handleSaveModal, studentObj
         if (formData.image instanceof File) {
             form.append("image", formData.image, formData.image.name);
         }
-        for (let pair of form.entries()) {
-            console.log(pair[0], pair[1]);
-        }
-
         try {
             let result;
             if (isEditMode) {
@@ -154,9 +134,8 @@ function StudentModal({ showModal, handleCloseModal, handleSaveModal, studentObj
 
     useEffect(() => {
         if (studentObj) {
-            console.log('studentObj', studentObj)
             const oldImage = studentObj?.student_image
-                ? "http://localhost:8000/uploads/" + studentObj.student_image
+                ? `${API}/uploads/` + studentObj.student_image
                 : "";
 
             setPreviewImage(oldImage);

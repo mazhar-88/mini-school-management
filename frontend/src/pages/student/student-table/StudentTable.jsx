@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 
 function StudentTable({ students, handleEditStudent, handleDelete, handleEditMode }) {
-
+const API =  import.meta.env.VITE_API_BASE_URL;
     const onEditModal = (student) => {
         handleEditStudent(true, student);
         handleEditMode(true)
@@ -46,7 +46,7 @@ function StudentTable({ students, handleEditStudent, handleDelete, handleEditMod
                             <td>{student.gender}</td>
                             <td>
                                 {
-                                    <img src={`http://localhost:8000/uploads/${student.student_image}`}
+                                    <img src={`${API}/uploads/${student.student_image}`}
                                         alt="student"
                                         width="50"
                                         height="50"

@@ -50,11 +50,9 @@ function Students() {
     const handleEditStudent = (isModalOpen, student) => {
         setShowModal(isModalOpen);
         setStudentObj(student)
-        console.log(student);
     };
 
     const handleDelete = async (student) => {
-        console.log(student);
         const studentId = student?.id;
         try {
             const url = `/student?id=${studentId}`;

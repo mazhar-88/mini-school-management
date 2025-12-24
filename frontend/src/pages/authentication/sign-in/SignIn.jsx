@@ -6,6 +6,7 @@ import { AuthContext } from "../../../context/AuthContext";
 
 function SignIn() {
     const navigate = useNavigate();
+    const API =  import.meta.env.VITE_API_BASE_URL;
     const { login } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ function SignIn() {
 
         try {
             setLoading(true);
-            const url = "http://localhost:8000/login";
+            const url = `${API}/login`;
             const result = await axios.post(url, formData);
             console.log('result', result)
             if (result.status === 200) {

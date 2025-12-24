@@ -53,11 +53,9 @@ function Section() {
     const handleEdit = (isModalOpen, section) => {
         setShowModal(isModalOpen);
         setSectionObj(section)
-        console.log(section);
     };
 
     const handleDelete = async (section) => {
-        console.log(section);
         try {
             const url = `/section?id=${section.section_id}`;
             const result = await axiosInstance.delete(url);
