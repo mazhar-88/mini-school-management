@@ -1,0 +1,52 @@
+.primary-bg-color {
+  background-color: #004080 !important;
+}
+
+.primary-color {
+  color: #004080 !important;
+}
+
+.warning-color {
+  background-color: peru !important;
+}
+
+table th {
+  background-color: #004080 !important;
+  color: #ffffff !important;
+}
+
+.primary-text-color {
+  color: #ffffff !important;
+}
+
+.with-out-border {
+  border: none !important;
+}
+
+.required {
+  color: red !important;
+}
+
+.pagination .page-link {
+  color: #004080;
+  background-color: #ffffff;
+  border: 1px solid #004080;
+}
+
+.pagination .page-link:hover {
+  color: #fff;
+  background-color: #004080;
+}
+
+
+.pagination .page-item.active .page-link {
+  background-color: #004080;
+  /* active bg */
+  border-color: #004080;
+  color: #fff;
+}
+
+
+.pagination .page-link:focus {
+  box-shadow: none;
+}
